@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Paiva & Paiva Advocacia e Assessoria Jurídica. Atuação jurídica com análise cuidadosa, orientação estratégica e atendimento próximo.">
+  <title>Paiva & Paiva | Advocacia e Assessoria Jurídica</title>
+
+  <!-- Tailwind via CDN: sem React, npm ou build step. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#20201D',
+            gold: '#B9924C',
+            goldSoft: '#D8BD84',
+            cream: '#F7F3EA',
+            paper: '#FCFAF5',
+            sand: '#E9E0D0',
+            taupe: '#A69A88',
+            sage: '#A9B0A1'
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Inter', 'Arial', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 20px 60px rgba(32,32,29,.08)',
+            card: '0 12px 35px rgba(32,32,29,.07)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tipografia elegante, sem dependência de framework JS. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-cream text-ink antialiased">
+  <header id="top" class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-ink/90 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-2 lg:px-8">
+      <a href="#top" class="flex items-center gap-3" aria-label="Paiva & Paiva - início">
+        <span class="leading-tight">
+          <img src="assets/logo.png" alt="Paiva & Paiva Advocacia e Assessoria Jurídica" class="h-20 w-auto object-contain" loading="lazy">
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm text-cream/70 md:flex">
+        <a class="nav-link" href="#escritorio">O escritório</a>
+        <a class="nav-link" href="#atuacao">Atuação</a>
+        <a class="nav-link" href="#profissionais">Profissionais</a>
+        <a class="nav-link" href="#contato">Contato</a>
+      </nav>
+
+      <a href="#contato" class="hidden rounded-full border border-gold bg-gold px-5 py-2.5 text-xs font-semibold uppercase tracking-[.16em] text-white transition hover:bg-ink hover:border-ink md:inline-flex">
+        Fale conosco
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="relative overflow-hidden pt-36 lg:pt-44">
+      <div class="absolute -left-40 top-24 h-96 w-96 rounded-full bg-goldSoft/15 blur-3xl"></div>
+      <div class="absolute -right-40 top-20 h-96 w-96 rounded-full bg-sage/20 blur-3xl"></div>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:pb-28">
+        <div class="relative z-10 max-w-2xl">
+          <div class="mb-7 flex items-center gap-3 text-xs font-medium uppercase tracking-[.25em] text-gold">
+            <span class="h-px w-10 bg-gold"></span>
+            Paiva & Paiva
+          </div>
+
+          <h1 class="font-serif text-6xl leading-[.9] text-ink sm:text-7xl lg:text-[6.3rem]">
+            Segurança para <em class="not-italic text-gold">decidir.</em>
+          </h1>
+
+          <p class="mt-8 max-w-xl text-base leading-8 text-ink/65 sm:text-lg">
+            Advocacia e assessoria jurídica com análise cuidadosa, orientação estratégica e atendimento próximo — para empresas, produtores rurais e pessoas em todo o Brasil.
+          </p>
+
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#atuacao" class="rounded-full bg-ink px-7 py-3.5 text-center text-xs font-semibold uppercase tracking-[.16em] text-white transition hover:bg-gold">
+              Conheça nossa atuação
+            </a>
+            <a href="#escritorio" class="rounded-full border border-ink/15 px-7 py-3.5 text-center text-xs font-semibold uppercase tracking-[.16em] text-ink transition hover:border-gold hover:text-gold">
+              O escritório
+            </a>
+          </div>
+
+          <div class="mt-12 flex items-center gap-5 text-xs text-ink/50">
+            <span class="h-px w-12 bg-gold"></span>
+            Atendimento em todo o Brasil
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-[520px] lg:justify-self-end">
+          <div class="absolute -inset-5 rounded-[2rem] border border-gold/20"></div>
+          <div class="relative overflow-hidden rounded-[1.5rem] bg-sand shadow-soft">
+            <img src="assets/escritorio.jpg" alt="Escritório Paiva & Paiva" class="hero-photo h-[570px] w-full object-cover object-top sm:h-[650px]" loading="eager">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent p-7 pt-28">
+              <p class="font-serif text-3xl text-white">Experiência e proximidade.</p>
+              <p class="mt-1 text-xs uppercase tracking-[.2em] text-white/70">Escritório Paiva & Paiva</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARCA / POSICIONAMENTO -->
+    <section id="escritorio" class="border-y border-ink/10 bg-paper">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[.8fr_1.2fr] lg:px-8 lg:py-28">
+        <div>
+          <span class="section-kicker">O escritório</span>
+          <h2 class="mt-4 font-serif text-5xl leading-tight sm:text-6xl">
+            Direito com <span class="text-gold">clareza</span> e estratégia.
+          </h2>
+        </div>
+
+        <div class="max-w-2xl">
+          <p class="text-lg leading-8 text-ink/70">
+            A Paiva & Paiva nasce com uma proposta simples: transformar questões jurídicas complexas em caminhos mais claros para a tomada de decisão.
+          </p>
+          <p class="mt-5 leading-8 text-ink/60">
+            Nossa abordagem combina análise técnica, comunicação transparente e atenção aos detalhes de cada caso. O objetivo é oferecer orientação jurídica responsável, com proximidade em todas as etapas.
+          </p>
+
+          <div class="mt-10 grid gap-4 sm:grid-cols-3">
+            <div class="soft-stat">
+              <span class="stat-number">01</span>
+              <span class="stat-label">Análise</span>
+              <p>Entender o contexto antes de orientar.</p>
+            </div>
+            <div class="soft-stat">
+              <span class="stat-number">02</span>
+              <span class="stat-label">Estratégia</span>
+              <p>Organizar riscos, possibilidades e próximos passos.</p>
+            </div>
+            <div class="soft-stat">
+              <span class="stat-number">03</span>
+              <span class="stat-label">Acompanhamento</span>
+              <p>Comunicação próxima durante a atuação.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATUAÇÃO -->
+    <section id="atuacao" class="bg-cream">
+      <div class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+        <div class="max-w-2xl">
+          <span class="section-kicker">Frentes de atuação</span>
+          <h2 class="mt-4 font-serif text-5xl leading-tight sm:text-6xl">
+            Soluções jurídicas para situações que exigem <span class="text-gold">cuidado.</span>
+          </h2>
+          <p class="mt-6 leading-8 text-ink/60">
+            Uma apresentação objetiva das principais frentes do escritório, sem promessas de resultado e com foco em informação jurídica.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <article class="service-card">
+            <span class="service-icon">01</span>
+            <h3>Contratos</h3>
+            <p>Análise, orientação e acompanhamento de questões contratuais.</p>
+            <span class="service-line"></span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">02</span>
+            <h3>Execução</h3>
+            <p>Atuação e orientação em situações relacionadas à execução de obrigações.</p>
+            <span class="service-line"></span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">03</span>
+            <h3>Cobrança</h3>
+            <p>Estratégias jurídicas para questões de cobrança e recuperação de crédito.</p>
+            <span class="service-line"></span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">04</span>
+            <h3>Produtor rural</h3>
+            <p>Assessoria jurídica para demandas contratuais e patrimoniais do setor rural.</p>
+            <span class="service-line"></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRASE -->
+    <section class="relative overflow-hidden bg-[#E9E0D0]">
+      <div class="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-gold/30"></div>
+      <div class="absolute -right-10 -top-10 h-52 w-52 rounded-full border border-gold/20"></div>
+      <div class="mx-auto max-w-5xl px-5 py-20 text-center lg:px-8 lg:py-28">
+        <span class="text-xs uppercase tracking-[.3em] text-gold">Uma escolha consciente começa com informação</span>
+        <blockquote class="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl">
+          “Antes de assinar, cobrar ou responder, <em class="not-italic text-gold">entenda.</em>”
+        </blockquote>
+        <p class="mx-auto mt-7 max-w-2xl leading-7 text-ink/60">
+          Informação jurídica adequada pode ajudar a identificar riscos, organizar decisões e definir os próximos passos com mais segurança.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROFISSIONAIS -->
+    <section id="profissionais" class="bg-paper">
+      <div class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+        <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div class="max-w-2xl">
+            <span class="section-kicker">Profissionais</span>
+            <h2 class="mt-4 font-serif text-5xl leading-tight sm:text-6xl">Quem está à frente.</h2>
+          </div>
+          <p class="max-w-md text-sm leading-7 text-ink/55">
+            Conheça as profissionais responsáveis pela condução do escritório e pela construção de uma relação jurídica próxima e transparente.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-8 md:grid-cols-2">
+          <article class="person-card">
+            <div class="person-image-wrap">
+              <img src="assets/beth.jpg" alt="Maria Elizabeth R. de Paiva" class="person-image" loading="lazy">
+            </div>
+            <div class="pt-6">
+              <p class="text-xs uppercase tracking-[.22em] text-gold">CEO · Fundadora</p>
+              <h3 class="mt-2 font-serif text-4xl">Maria Elizabeth R. de Paiva</h3>
+            </div>
+          </article>
+
+          <article class="person-card">
+            <div class="person-image-wrap">
+              <img src="assets/ana-paula.jpg" alt="Ana Paula R. de Paiva Pereira" class="person-image person-image-ana" loading="lazy">
+            </div>
+            <div class="pt-6">
+              <p class="text-xs uppercase tracking-[.22em] text-gold">CEO · Cofundadora</p>
+              <h3 class="mt-2 font-serif text-4xl">Ana Paula R. de Paiva Pereira</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="bg-ink text-white">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[1fr_.8fr] lg:px-8 lg:py-28">
+        <div>
+          <span class="text-xs uppercase tracking-[.28em] text-goldSoft">Contato</span>
+          <h2 class="mt-5 max-w-2xl font-serif text-5xl leading-tight sm:text-6xl">
+            Uma questão jurídica merece uma conversa cuidadosa.
+          </h2>
+          <p class="mt-7 max-w-xl leading-8 text-white/60">
+            Entre em contato para apresentar sua situação e entender as possibilidades de orientação jurídica.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/[.04] p-7 sm:p-9">
+          <!-- Substituir os campos abaixo pelos contatos reais do escritório. -->
+          <div class="contact-row">
+            <span>WhatsApp</span>
+            <span class="text-white/50">Adicionar número</span>
+          </div>
+          <div class="contact-row">
+            <span>E-mail</span>
+            <span class="text-white/50">Adicionar e-mail</span>
+          </div>
+          <div class="contact-row">
+            <span>Atendimento</span>
+            <span class="text-white/50">Todo o Brasil</span>
+          </div>
+
+          <a href="#top" class="mt-8 inline-flex w-full items-center justify-center rounded-full bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[.18em] text-white transition hover:bg-goldSoft">
+            Voltar ao início
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-ink text-white/50">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-7 text-xs sm:flex-row sm:items-center sm:justify-between lg:px-8">
+      <div>
+        <span class="font-serif text-lg text-white">Paiva & Paiva</span>
+        <span class="ml-2">Advocacia e Assessoria Jurídica</span>
+      </div>
+      <p>© 2026 Paiva & Paiva. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Rolagem suave e menu simples, sem framework.
+    document.documentElement.style.scrollBehavior = 'smooth';
+  </script>
+</body>
+</html>
