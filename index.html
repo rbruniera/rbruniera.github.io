@@ -42,26 +42,39 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-cream text-ink antialiased">
-  <header id="top" class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-ink/90 backdrop-blur-md">
+<body id="inicio" class="bg-cream text-ink antialiased">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-ink/90 backdrop-blur-md">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-2 lg:px-8">
-      <a href="#top" class="flex items-center gap-3" aria-label="Paiva & Paiva - início">
+      <a href="#inicio" data-scroll-top class="flex items-center gap-3" aria-label="Paiva & Paiva - início">
         <span class="leading-tight">
           <img src="assets/logo.png" alt="Paiva & Paiva Advocacia e Assessoria Jurídica" class="h-20 w-auto object-contain" loading="lazy">
         </span>
       </a>
 
-      <nav class="hidden items-center gap-7 text-sm text-cream/70 md:flex">
-        <a class="nav-link" href="#escritorio">O escritório</a>
+      <nav class="hidden items-center gap-7 text-base text-cream/70 md:flex">
+        <a class="nav-link" href="#escritorio">O Escritório</a>
         <a class="nav-link" href="#atuacao">Atuação</a>
         <a class="nav-link" href="#profissionais">Profissionais</a>
-        <a class="nav-link" href="#contato">Contato</a>
       </nav>
 
       <a href="#contato" class="hidden rounded-full border border-gold bg-gold px-5 py-2.5 text-xs font-semibold uppercase tracking-[.16em] text-white transition hover:bg-ink hover:border-ink md:inline-flex">
         Fale conosco
       </a>
+
+      <button type="button" id="menu-toggle" class="inline-flex items-center justify-center rounded-full border border-gold/60 p-2 text-gold transition hover:bg-white/10 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu de navegação">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+        </svg>
+      </button>
     </div>
+
+    <nav id="mobile-menu" class="hidden border-t border-white/10 px-5 py-4 md:hidden" aria-label="Navegação móvel">
+      <div class="mx-auto flex max-w-7xl flex-col gap-1 text-base text-cream/80">
+        <a class="rounded-lg px-3 py-3 transition hover:bg-white/10 hover:text-white" href="#escritorio">O escritório</a>
+        <a class="rounded-lg px-3 py-3 transition hover:bg-white/10 hover:text-white" href="#atuacao">Atuação</a>
+        <a class="rounded-lg px-3 py-3 transition hover:bg-white/10 hover:text-white" href="#profissionais">Profissionais</a>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -277,7 +290,7 @@
             <span class="text-white/50">Todo o Brasil</span>
           </div>
 
-          <a href="#top" class="mt-8 inline-flex w-full items-center justify-center rounded-full bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[.18em] text-white transition hover:bg-goldSoft">
+          <a href="#inicio" data-scroll-top class="mt-8 inline-flex w-full items-center justify-center rounded-full bg-gold px-6 py-4 text-xs font-semibold uppercase tracking-[.18em] text-white transition hover:bg-goldSoft">
             Voltar ao início
           </a>
         </div>
@@ -296,8 +309,34 @@
   </footer>
 
   <script>
-    // Rolagem suave e menu simples, sem framework.
+    // Rolagem suave e navegação móvel, sem framework.
     document.documentElement.style.scrollBehavior = 'smooth';
+
+    const menuToggle = document.querySelector('#menu-toggle');
+    const mobileMenu = document.querySelector('#mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Abrir menu de navegação' : 'Fechar menu de navegação');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+      });
+    });
+
+    document.querySelectorAll('[data-scroll-top]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        history.replaceState(null, '', '#inicio');
+      });
+    });
   </script>
 </body>
 </html>
