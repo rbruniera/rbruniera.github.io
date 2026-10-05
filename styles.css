@@ -37,7 +37,7 @@ body {
 }
 
 .nav-link:hover {
-  color: var(--ink);
+  color: var(--cream);
 }
 
 .nav-link:hover::after {
