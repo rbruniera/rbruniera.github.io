@@ -53,7 +53,17 @@
 
       <nav class="hidden items-center gap-7 text-base text-cream/70 md:flex">
         <a class="nav-link" href="#escritorio">O Escritório</a>
-        <a class="nav-link" href="#atuacao">Atuação</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-controls="areas-dropdown-menu">Atuação</button>
+          <div class="nav-dropdown-menu" id="areas-dropdown-menu">
+              <a href="areas/rurais.html">Rurais / Agronegócio</a>
+              <a href="areas/trabalhista.html">Trabalhista</a>
+              <a href="areas/previdenciario.html">Previdenciário</a>
+              <a href="areas/empresarios.html">Empresários</a>
+              <a href="areas/pessoas-fisicas.html">Pessoas físicas</a>
+              <a href="areas/seguros.html">Seguros</a>
+          </div>
+        </div>
         <a class="nav-link" href="#profissionais">Profissionais</a>
       </nav>
 
@@ -71,7 +81,17 @@
     <nav id="mobile-menu" class="hidden border-t border-white/10 px-5 py-4 md:hidden" aria-label="Navegação móvel">
       <div class="mx-auto flex max-w-7xl flex-col gap-1 text-base text-cream/80">
         <a class="rounded-lg px-3 py-3 transition hover:bg-white/10 hover:text-white" href="#escritorio">O escritório</a>
-        <a class="rounded-lg px-3 py-3 transition hover:bg-white/10 hover:text-white" href="#atuacao">Atuação</a>
+        <details class="mobile-areas">
+          <summary class="rounded-lg px-3 py-3 transition hover:bg-white/10 hover:text-white">Áreas de atuação</summary>
+          <div class="mobile-areas-links">
+            <a href="areas/rurais.html">Rurais / Agronegócio</a>
+            <a href="areas/trabalhista.html">Trabalhista</a>
+            <a href="areas/previdenciario.html">Previdenciário</a>
+            <a href="areas/empresarios.html">Empresários</a>
+            <a href="areas/pessoas-fisicas.html">Pessoas físicas</a>
+            <a href="areas/seguros.html">Seguros</a>
+          </div>
+        </details>
         <a class="rounded-lg px-3 py-3 transition hover:bg-white/10 hover:text-white" href="#profissionais">Profissionais</a>
       </div>
     </nav>
@@ -99,8 +119,8 @@
           </p>
 
           <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="#atuacao" class="rounded-full bg-ink px-7 py-3.5 text-center text-xs font-semibold uppercase tracking-[.16em] text-white transition hover:bg-gold">
-              Conheça nossa atuação
+            <a href="#contato" class="rounded-full bg-ink px-7 py-3.5 text-center text-xs font-semibold uppercase tracking-[.16em] text-white transition hover:bg-gold">
+              Fale sobre sua necessidade
             </a>
             <a href="#escritorio" class="rounded-full border border-ink/15 px-7 py-3.5 text-center text-xs font-semibold uppercase tracking-[.16em] text-ink transition hover:border-gold hover:text-gold">
               O escritório
@@ -161,51 +181,6 @@
               <p>Comunicação próxima durante a atuação.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ATUAÇÃO -->
-    <section id="atuacao" class="bg-cream">
-      <div class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <div class="max-w-2xl">
-          <span class="section-kicker">Frentes de atuação</span>
-          <h2 class="mt-4 font-serif text-5xl leading-tight sm:text-6xl">
-            Soluções jurídicas para situações que exigem <span class="text-gold">cuidado.</span>
-          </h2>
-          <p class="mt-6 leading-8 text-ink/60">
-            Uma apresentação objetiva das principais frentes do escritório, sem promessas de resultado e com foco em informação jurídica.
-          </p>
-        </div>
-
-        <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <article class="service-card">
-            <span class="service-icon">01</span>
-            <h3>Contratos</h3>
-            <p>Análise, orientação e acompanhamento de questões contratuais.</p>
-            <span class="service-line"></span>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">02</span>
-            <h3>Execução</h3>
-            <p>Atuação e orientação em situações relacionadas à execução de obrigações.</p>
-            <span class="service-line"></span>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">03</span>
-            <h3>Cobrança</h3>
-            <p>Estratégias jurídicas para questões de cobrança e recuperação de crédito.</p>
-            <span class="service-line"></span>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">04</span>
-            <h3>Produtor rural</h3>
-            <p>Assessoria jurídica para demandas contratuais e patrimoniais do setor rural.</p>
-            <span class="service-line"></span>
-          </article>
         </div>
       </div>
     </section>
@@ -313,6 +288,33 @@
 
     const menuToggle = document.querySelector('#menu-toggle');
     const mobileMenu = document.querySelector('#mobile-menu');
+
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      const trigger = dropdown.querySelector('.nav-dropdown-toggle');
+      const setOpen = (open) => {
+        dropdown.classList.toggle('is-open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+      };
+
+      dropdown.addEventListener('pointerenter', (event) => {
+        if (event.pointerType !== 'touch') setOpen(true);
+      });
+      dropdown.addEventListener('pointerleave', (event) => {
+        if (event.pointerType !== 'touch') setOpen(false);
+      });
+      trigger.addEventListener('click', () => {
+        setOpen(trigger.getAttribute('aria-expanded') !== 'true');
+      });
+      dropdown.addEventListener('focusout', (event) => {
+        if (!dropdown.contains(event.relatedTarget)) setOpen(false);
+      });
+      trigger.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          setOpen(false);
+          trigger.focus();
+        }
+      });
+    });
 
     menuToggle.addEventListener('click', () => {
       const isOpen = !mobileMenu.classList.contains('hidden');
